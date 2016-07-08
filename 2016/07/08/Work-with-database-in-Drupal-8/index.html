@@ -11,12 +11,12 @@
 <meta property="og:url" content="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/index.html">
 <meta property="og:site_name" content="OlIv Blog">
 <meta property="og:description" content="For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class.123456789101112131415161718192021222324252627282930&amp;lt;?phpnamespace Dr">
-<meta property="og:image" content="https://alexsergivan.github.io/images/2016/07/Screen">
-<meta property="og:updated_time" content="2016-07-08T09:24:21.000Z">
+<meta property="og:image" content="https://alexsergivan.github.io/images/2016/07/drupal8-databse.png">
+<meta property="og:updated_time" content="2016-07-08T09:29:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Work with database in Drupal 8">
 <meta name="twitter:description" content="For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class.123456789101112131415161718192021222324252627282930&amp;lt;?phpnamespace Dr">
-<meta name="twitter:image" content="https://alexsergivan.github.io/images/2016/07/Screen">
+<meta name="twitter:image" content="https://alexsergivan.github.io/images/2016/07/drupal8-databse.png">
     
 
     
@@ -176,7 +176,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="/images/2016/07/Screen Shot 2016-07-08 at 10.52.20.png" alt="Drupal 8 database"></p>
+            <p><img src="/images/2016/07/drupal8-databse.png" alt="Drupal 8 database"></p>
 <h4 id="For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class"><a href="#For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class" class="headerlink" title="For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class."></a>For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class.</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">Drupal</span>\<span class="title">our_custom_module_name</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Drupal</span>\<span class="title">Core</span>\<span class="title">Database</span>\<span class="title">Connection</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Our class, where we will communicate with database.</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LetsTalkWithDatabase</span> </span>&#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * <span class="doctag">@var</span> \Drupal\Core\Database\Connection</div><div class="line">   */</div><div class="line">  <span class="keyword">protected</span> $database;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Construct.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Connection $database)</span> </span>&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;database = $database;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Create function.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span><span class="params">(ContainerInterface $container)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">static</span>(</div><div class="line">      $container-&gt;get(<span class="string">'database'</span>)</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
@@ -188,7 +188,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/" data-id="ciqdjcugk00019846wvk7uc97" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/" data-id="ciqdjkf4v0000e746agvk5ou4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -305,7 +305,7 @@ ga('send', 'pageview');
                             <a href="/2016/07/08/Work-with-database-in-Drupal-8/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/2016/07/Screen)" alt="Work with database in Drupal 8" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/2016/07/drupal8-databse.png)" alt="Work with database in Drupal 8" class="thumbnail-image"></span>
     
 </a>
 
