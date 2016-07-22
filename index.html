@@ -70,7 +70,7 @@ ga('send', 'pageview');
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -89,10 +89,10 @@ ga('send', 'pageview');
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: '投稿',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'カテゴリ',
+            TAGS: 'タグ',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -123,7 +123,7 @@ ga('send', 'pageview');
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="検索" />
     </div>
 
                 </td>
@@ -135,7 +135,7 @@ ga('send', 'pageview');
         <div class="outer">
             
             <section id="main">
-    <article id="post-Work-with-database-in-Drupal-8" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Database-query-for-getting-the-closest-destinations-in-Drupal8" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -144,7 +144,7 @@ ga('send', 'pageview');
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/07/08/Work-with-database-in-Drupal-8/">Work with database in Drupal 8</a>
+            <a class="article-title" href="/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/">Database query for getting the closest destinations in Drupal 8</a>
         </h1>
     
 
@@ -152,8 +152,8 @@ ga('send', 'pageview');
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/07/08/Work-with-database-in-Drupal-8/">
-            <time datetime="2016-07-08T08:34:24.000Z" itemprop="datePublished">2016-07-08</time>
+        <a href="/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/">
+            <time datetime="2016-07-22T13:53:17.000Z" itemprop="datePublished">2016-07-22</time>
         </a>
     </div>
 
@@ -171,8 +171,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="/images/2016/07/drupal8-databse.png" alt="Drupal 8 database"></p>
-<h4 id="For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class"><a href="#For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class" class="headerlink" title="For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class."></a>For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class.</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">Drupal</span>\<span class="title">our_custom_module_name</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Drupal</span>\<span class="title">Core</span>\<span class="title">Database</span>\<span class="title">Connection</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Our class, where we will communicate with database.</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LetsTalkWithDatabase</span> </span>&#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * <span class="doctag">@var</span> \Drupal\Core\Database\Connection</div><div class="line">   */</div><div class="line">  <span class="keyword">protected</span> $database;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Construct.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Connection $database)</span> </span>&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;database = $database;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Create function.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span><span class="params">(ContainerInterface $container)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">static</span>(</div><div class="line">      $container-&gt;get(<span class="string">'database'</span>)</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Database service. It's better to use dependency injection in your class.</span></div><div class="line">$database = \Drupal::service(<span class="string">'database'</span>);</div><div class="line">$earth_radius = <span class="number">3959</span>;</div><div class="line"><span class="comment">// Coordinates of the place from which you would like to get nearest places.</span></div><div class="line">$lat = <span class="string">'52.486081'</span>;</div><div class="line">$lon = <span class="string">'13.404616'</span>;</div><div class="line"><span class="comment">// How many nearest places we would like to show?</span></div><div class="line">$limit = <span class="number">10</span>;</div><div class="line"><span class="comment">// Radius to search.</span></div><div class="line">$radius = <span class="number">100</span>;</div><div class="line"></div><div class="line">$query = $database-&gt;select(<span class="string">'my_table_name_from_db'</span>, <span class="string">'destination'</span>);</div><div class="line">$query-&gt;fields(<span class="string">'destination'</span>);</div><div class="line">$query-&gt;orderBy(<span class="string">'distance'</span>);</div><div class="line">$query-&gt;range(<span class="number">0</span>, $limit);</div><div class="line"></div><div class="line"><span class="comment">// field_latitude and field_longitude - columns names from 'my_table_name_from_db'</span></div><div class="line"><span class="comment">// where coordinates stored.</span></div><div class="line">$expr = <span class="string">"(</span></div><div class="line">  $earth_radius * acos(</div><div class="line">    cos(radians(:lat))</div><div class="line">    * cos(radians(field_latitude))</div><div class="line">    * cos(radians(field_longitude) - radians(:lon))</div><div class="line">    + sin(radians(:lat))</div><div class="line">    * sin(radians(field_latitude))</div><div class="line">  )</div><div class="line">)";</div><div class="line"></div><div class="line">$query-&gt;addExpression($expr, <span class="string">'distance'</span>, <span class="keyword">array</span>(<span class="string">':lat'</span> =&gt; $lat, <span class="string">':lon'</span> =&gt; $lon));</div><div class="line">$query-&gt;having(<span class="string">'distance &lt;= :radius'</span>, <span class="keyword">array</span>(<span class="string">':radius'</span> =&gt; $radius));</div><div class="line"></div><div class="line">$destinations = $query-&gt;execute()-&gt;fetchAll();</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -183,7 +182,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/" data-id="ciqdjmhre0000ey46ts5cy0ob" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://alexsergivan.github.io/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/" data-id="ciqxtkk4d0000qc466ctkidr7" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -251,7 +250,133 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/">Comments</a>
+        <a href="https://alexsergivan.github.io/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://alexsergivan.github.io/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/">コメント</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Work-with-database-in-Drupal-8" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/07/08/Work-with-database-in-Drupal-8/">Work with database in Drupal 8</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/07/08/Work-with-database-in-Drupal-8/">
+            <time datetime="2016-07-08T08:34:24.000Z" itemprop="datePublished">2016-07-08</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Drupal-8/">Drupal 8</a>, <a class="tag-link" href="/tags/database/">database</a>, <a class="tag-link" href="/tags/mysql/">mysql</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="/images/2016/07/drupal8-databse.png" alt="Drupal 8 database"></p>
+<h4 id="For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class"><a href="#For-creating-database-queries-in-Drupal-8-we-should-add-dependency-to-´Drupal-Core-Database-Connection´-class-inside-our-class" class="headerlink" title="For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class."></a>For creating database queries in Drupal 8, we should add dependency to ´Drupal\Core\Database\Connection´ class inside our class.</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">Drupal</span>\<span class="title">our_custom_module_name</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Drupal</span>\<span class="title">Core</span>\<span class="title">Database</span>\<span class="title">Connection</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Our class, where we will communicate with database.</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LetsTalkWithDatabase</span> </span>&#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * <span class="doctag">@var</span> \Drupal\Core\Database\Connection</div><div class="line">   */</div><div class="line">  <span class="keyword">protected</span> $database;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Construct.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(Connection $database)</span> </span>&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;database = $database;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Create function.</div><div class="line">   */</div><div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">create</span><span class="params">(ContainerInterface $container)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">static</span>(</div><div class="line">      $container-&gt;get(<span class="string">'database'</span>)</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/" data-id="ciqxtkk590008qc46pikavi3u" class="article-share-link"><i class="fa fa-share"></i>共有</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://alexsergivan.github.io/2016/07/08/Work-with-database-in-Drupal-8/">コメント</a>
     
 
         </footer>
@@ -319,7 +444,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/" data-id="ciqdjmhri0001ey46vu1q201r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/" data-id="ciqxtkk570007qc46o5tx1rst" class="article-share-link"><i class="fa fa-share"></i>共有</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -387,7 +512,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/">Comments</a>
+        <a href="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://alexsergivan.github.io/2016/07/07/how-to-add-custom-validation-to-entity/">コメント</a>
     
 
         </footer>
@@ -402,9 +527,28 @@ ga('send', 'pageview');
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">最近の記事</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/07/22/Database-query-for-getting-the-closest-destinations-in-Drupal8/" class="title">Database query for getting the closest destinations in Drupal 8</a></p>
+                            <p class="item-date"><time datetime="2016-07-22T13:53:17.000Z" itemprop="datePublished">2016-07-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -453,34 +597,34 @@ ga('send', 'pageview');
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">アーカイブ</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tags</h3>
+        <h3 class="widget-title">タグ</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Drupal-8/">Drupal 8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constraint/">constraint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/entity/">entity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/validation/">validation</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Drupal-8/">Drupal 8</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constraint/">constraint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/entity/">entity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/validation/">validation</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
+        <h3 class="widget-title">タグクラウド</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Drupal-8/" style="font-size: 20px;">Drupal 8</a> <a href="/tags/constraint/" style="font-size: 10px;">constraint</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/entity/" style="font-size: 10px;">entity</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/validation/" style="font-size: 10px;">validation</a>
+            <a href="/tags/Drupal-8/" style="font-size: 20px;">Drupal 8</a> <a href="/tags/constraint/" style="font-size: 10px;">constraint</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/entity/" style="font-size: 10px;">entity</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/validation/" style="font-size: 10px;">validation</a>
         </div>
     </div>
 
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">リンク</h3>
         <div class="widget">
             <ul>
                 
